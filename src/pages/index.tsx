@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import '@/assets/style/global.scss'
+import { useState } from 'react';
+import '@/assets/style/global.scss';
+import { Card } from 'antd';
 
 function Index() {
   const [ count, setCounts ] = useState('')
@@ -7,14 +8,14 @@ function Index() {
     setCounts(e.target.value)
   }
   return (
-    <>
+    <Card hoverable>
       <h2>vite4+react+ts</h2>
-      <p>受控组件</p>
+      <p className='text-lime-400'>受控组件</p>
       <input type="text" value={count} onChange={onChange} />
       <br />
       <p>非受控组件</p>
       <input type="text" />
-    </>
+    </Card>
   )
 }
 export default Index;

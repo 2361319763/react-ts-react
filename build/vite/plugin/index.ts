@@ -1,6 +1,8 @@
 import { PluginOption } from 'vite';
 import VitePluginCertificate from 'vite-plugin-mkcert';
-import react from '@vitejs/plugin-react'
+import { visualizer } from 'rollup-plugin-visualizer';
+import react from '@vitejs/plugin-react';
+import createCompression from './compression';
 
 interface ViteEnv {
   VITE_PORT: number;
@@ -19,14 +21,16 @@ interface ViteEnv {
   VITE_GENERATE_UI: string;
 }
 
-export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
+export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean = false) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     react(),
+    visualizer({open: true}),
     // @ts-ignore
     VitePluginCertificate({
       source: 'coding',
     }),
   ];
+  isBuild && vitePlugins.push(...createCompression(viteEnv))
   
   return vitePlugins;
 }
