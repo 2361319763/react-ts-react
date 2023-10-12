@@ -25,8 +25,6 @@ const routelist = Object.entries(modules).map(([pagePath, config])=>{
   }
 }) as RouteObject[];
 
-routelist.push
-
 const routes = createBrowserRouter([ ...defaultRoutes, ...routelist ]);
 
 export default routes;
