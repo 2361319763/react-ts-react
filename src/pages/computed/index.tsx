@@ -1,3 +1,8 @@
+/**
+ * useMemo
+ * useMemo 是一个 React Hook，它在每次重新渲染的时候能够缓存计算的结果
+ */
+
 import { useState, useMemo } from 'react';
 
 export default function computedIndex() {
@@ -7,17 +12,16 @@ export default function computedIndex() {
   const name = useMemo(() => {
     return serverUrl + " " + age;
   }, [age]);
-  console.log(name)
 
   const handleCilck = () => {
-    setAge(age++)
+    setAge(++age)
   }
 
   return (
     <div>
       <h1>Computed</h1>
       <p>{name}</p>
-      <button onClick={handleCilck}>+</button>
+      <button onClick={ ()=>handleCilck() }>+</button>
     </div>
   )
 }

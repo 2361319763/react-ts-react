@@ -1,9 +1,17 @@
-import { createBrowserRouter, RouteObject } from 'react-router-dom'
+import React from 'react';
+import { createBrowserRouter, RouteObject } from 'react-router-dom';
 
 const modules = import.meta.glob("@/pages/**/*.tsx",{
   eager: true,
   import: 'default'
 });
+
+const defaultRoutes: RouteObject[] = [
+  {
+    path: '*',
+    Component: React.lazy(() => import("@/pages/404")),
+  }
+];
 
 const routelist = Object.entries(modules).map(([pagePath, config])=>{
   const path = pagePath.replace('/src/pages', '').replace('.tsx', '');
@@ -17,6 +25,8 @@ const routelist = Object.entries(modules).map(([pagePath, config])=>{
   }
 }) as RouteObject[];
 
-const routes = createBrowserRouter(routelist);
+routelist.push
+
+const routes = createBrowserRouter([ ...defaultRoutes, ...routelist ]);
 
 export default routes;

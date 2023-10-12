@@ -8,7 +8,10 @@ function Index() {
     setCounts(e.target.value)
   }
   return (
-    <Card hoverable>
+    <Card 
+      hoverable 
+      bordered={false}
+    >
       <h2>vite4+react+ts</h2>
       <p className='text-lime-400'>受控组件</p>
       <input type="text" value={count} onChange={onChange} />
