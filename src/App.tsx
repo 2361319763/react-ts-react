@@ -10,4 +10,4 @@ function App() {
     </React.StrictMode>
   )
 }
-export default App
+export default App;

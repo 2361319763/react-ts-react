@@ -1,5 +1,6 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Button } from 'antd';
+import ClassComponentChild from './child';
 
 interface InState {
   myShow: boolean;
@@ -21,6 +22,8 @@ export default class classComponent extends Component<userProps>{
     myShow: true,
     index: 0
   }
+  myRef = React.createRef<HTMLDivElement>();
+  childRef = React.createRef<ClassComponentChild>();
 
   constructor(props: userProps){
     super(props);
@@ -33,13 +36,20 @@ export default class classComponent extends Component<userProps>{
     })
   }
 
+  getChild = () => {
+    console.log(this.childRef);
+  }
+
   render() {
     return(
       <div>
         <h2>classComponent</h2>
-        <p>{ this.props.name } - { this.props.age }</p>
+        <p ref={ this.myRef }>{ this.props.name } - { this.props.age }</p>
         <p>{ this.state.index }</p>
         <Button onClick={() => this.setShow()}>{  this.state.myShow ? "取消收藏" : "收藏" }</Button>
+        <br />
+        <ClassComponentChild ref={this.childRef} />
+        <Button onClick={() => this.getChild()}>获取子组件信息</Button>
       </div>
     );
   }

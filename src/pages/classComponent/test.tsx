@@ -4,6 +4,7 @@ const demoProps = {
   name: '张三',
   age: 12,
 }
+
 const Test: React.FC = () => {
   return <Demo {...demoProps} />;
 }
