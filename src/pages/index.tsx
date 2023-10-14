@@ -14,7 +14,7 @@ function Index() {
       <p className='text-lime-400'>受控组件</p>
       <input type="text" value={count} onChange={ (e)=>setCounts(e.target.value) } />
       <br />
-      <p>受控组件</p>
+      <p>非受控组件</p>
       <input type="text" />
     </Card>
   )

@@ -3,12 +3,12 @@
  * 能让你引用一个不需要渲染的值
  * 可以修改 ref.current 属性
  */
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Card, Input, Button } from 'antd';
 import type { InputRef } from 'antd';
 
 const useRefIndex: React.FC = () => {
-  const [name, setName] = React.useState<string>('useRef')
+  const [name, setName] = useState<string>('useRef')
   let inputRef = useRef<InputRef>(null);
   const intervalRef = useRef<number>(0);
 

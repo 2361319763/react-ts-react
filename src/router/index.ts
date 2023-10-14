@@ -6,25 +6,37 @@ const modules = import.meta.glob("@/pages/**/*.tsx",{
   import: 'default'
 });
 
-const defaultRoutes: RouteObject[] = [
+const paramsList = ['/hooks/useNavigate/params'];
+
+const constantRoutes: RouteObject[] = [
   {
     path: '*',
     Component: React.lazy(() => import("@/pages/404")),
   }
 ];
 
-const routelist = Object.entries(modules).map(([pagePath, config])=>{
+const setPath = (path:string)=>{
+  const isPatamsPage = paramsList.indexOf(path);
+  if (path=='/index') {
+    return '/';
+  } else if (isPatamsPage != -1) {
+    return path + '/:value';
+  } else {
+    return path;
+  }
+}
+
+const basicRoutes = Object.entries(modules).map(([pagePath, config])=>{
   const path = pagePath.replace('/src/pages', '').replace('.tsx', '');
   const name = pagePath.split('/').filter(Boolean).join('-') || 'index';
   return {
-    path: path=='/index'?'/':path,
+    path: setPath(path),
     name,
-    // 这不能这样写，生产环境会有问题
     Component: modules[pagePath],
     mate: config
   }
 }) as RouteObject[];
 
-const routes = createBrowserRouter([ ...defaultRoutes, ...routelist ]);
+const routes = createBrowserRouter([ ...constantRoutes, ...basicRoutes ]);
 
 export default routes;
