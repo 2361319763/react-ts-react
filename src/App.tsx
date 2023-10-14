@@ -4,10 +4,9 @@ import routes from '@/router'
 import '@/assets/style/App.css'
 
 function App() {
+  console.log('App 被加载')
   return (
-    <React.StrictMode>
-      <RouterProvider router={routes} />
-    </React.StrictMode>
+    <RouterProvider router={routes} />
   )
 }
 export default App;

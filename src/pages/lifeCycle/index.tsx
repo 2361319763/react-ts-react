@@ -25,8 +25,11 @@
  * 
  * getDerivedStateFromProps 
  * 在调用 render 方法之前被调用，不管是在初始挂载时还是在后续组件更新时都会被调用
- * 返回的state值不能被修改
+ * 返回的 state props 值不能被修改
  * 不能和 componentWillMount componentWillReceiveProps componentWillUpdate 同时使用
+ * 
+ * getSnapshotBeforeUpdate
+ * 取代了componetWillUpdate，触发时间为update发生的时候，在render之后dom渲染之前返回一个值，作为componentDidUpdate的第三个参数
  * ---------------------------------------------------
  * 
  * 销毁阶段
@@ -48,11 +51,11 @@ export default class LifeCycle extends Component<PropsInterface> {
     super(props);
     console.log('constructor');
   }
-  state = {
+  state: StateInterface = {
     count: 0
   }
   // 将被弃用
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     console.log('componentWillMount');
 
     // 第一次挂载到Dom树前的 最后一次修改状态的机会
@@ -70,14 +73,19 @@ export default class LifeCycle extends Component<PropsInterface> {
     // 基于创建完的dom进行操作
 
   }
-  // static getDerivedStateFromProps() {
+  // static getDerivedStateFromProps(Props: PropsInterface, State: StateInterface) {
   //   console.log('getDerivedStateFromProps');
   //     return {
-  //       // count: 1
+  //       count: 1,
+  //       name: "111"
   //     }
   // }
+  // getSnapshotBeforeUpdate(prevProps: Readonly<PropsInterface>, prevState: Readonly<{}>) {
+  //   console.log('getSnapshotBeforeUpdate');
+  //   return null;
+  // }
   // 将被弃用
-  componentWillUpdate(nextProps: Readonly<{}>, nextState: Readonly<{}>, nextContext: any): void {
+  UNSAFE_componentWillUpdate(nextProps: Readonly<{}>, nextState: Readonly<{}>, nextContext: any): void {
     console.log('componentWillUpdate');
       
   }
@@ -90,14 +98,14 @@ export default class LifeCycle extends Component<PropsInterface> {
   componentWillReceiveProps(nextProps: Readonly<{}>, nextContext: any): void {
     console.log('componentWillReceiveProps');
   }
-  shouldComponentUpdate(nextProps: Readonly<{}>, nextState: Readonly<StateInterface>, nextContext: any): boolean {
-    console.log('shouldComponentUpdate');
-    console.log('nextProps:',nextProps);
-    console.log('nextState:',nextState);
-    console.log('nextContext:',nextContext);
+  // shouldComponentUpdate(nextProps: Readonly<{}>, nextState: Readonly<StateInterface>, nextContext: any): boolean {
+  //   console.log('shouldComponentUpdate');
+  //   console.log('nextProps:',nextProps);
+  //   console.log('nextState:',nextState);
+  //   console.log('nextContext:',nextContext);
     
-    return nextState.count % 2 === 0;
-  }
+  //   return nextState.count % 2 === 0;
+  // }
   componentWillUnmount() {
     console.log('componentWillUnmount');
   }

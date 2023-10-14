@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LifeCycle from './index';
+import PureComponenIndex from './pureComponent'
 
 const LifeCycleTest:React.FC = () => {
   const [name, setName] = useState<string>("张三");
@@ -10,6 +11,7 @@ const LifeCycleTest:React.FC = () => {
       <input type="text" value={ name } onChange={(e)=>setName(String(e.target.value))} />
       { showChild && <LifeCycle name={ name } />}
       <button onClick={()=>setShowChild(!showChild)}>{showChild ? '销毁子组件' : '显示子组件'}</button>
+      <PureComponenIndex name={name} />
     </div>
   )
 }
