@@ -6,8 +6,8 @@
 import { useState } from 'react';
 
 // 创建自定义钩子 useCounter
-function useCounter(initialValue = 0) {
-  const [count, setCount] = useState(initialValue);
+function useCounter(initialValue:number = 0) {
+  const [count, setCount] = useState<number>(initialValue);
 
   const increment = () => {
     setCount(count + 1);
