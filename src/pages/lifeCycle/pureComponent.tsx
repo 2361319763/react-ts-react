@@ -1,5 +1,5 @@
 /**
- * PureComponent
+ * PureComponent (可用于性能优化)
  * 会帮你比较新props 跟旧的props，
  * 新的state和老的state (值相等,或者对象含有相同的属性、且属性值相等 )，
  * 决定shouldcomponentUpdate 返回true 或者false， 
