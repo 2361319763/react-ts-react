@@ -3,10 +3,12 @@ import { RouterProvider } from 'react-router-dom'
 import routes from '@/router'
 import '@/assets/style/App.css'
 
-function App() {
+const App: React.FC = () => {
   console.log('App 被加载')
   return (
-    <RouterProvider router={routes} />
+    <RouterProvider 
+      router={routes} 
+    />
   )
 }
 export default App;

@@ -1,20 +1,20 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import reduxThunk from "redux-thunk";
+import reduxPromise from "redux-promise";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import reducer from "./reducers";
 
-interface Action {
-  type: 'SET_NAME';
-  payload: string;
-}
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['countReducer']
+};
 
-const reducer = (prevState = {name:'redux'},action:Action) => {
-  console.log(prevState,action);
-  switch(action.type){
-    case 'SET_NAME':
-      return {...prevState,name:action.payload}
-    default:
-  }
-  return prevState;
-}
+const persistedReducer = persistReducer(persistConfig, reducer);
 
-const store = createStore(reducer);
+const store = createStore(persistedReducer, applyMiddleware(reduxThunk, reduxPromise));
 
-export default store;
+let persistor = persistStore(store);
+
+export { store, persistor };
