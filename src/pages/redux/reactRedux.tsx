@@ -6,9 +6,9 @@ import { ReducerInterface } from '@/redux/reducers'
 
 interface PropsInterface {
   name: string;
-  count: number;
+  count?: number;
   dispatchSetNmae: (name: string) => void;
-  dispatchSetCount: () => void;
+  dispatchSetCount?: () => void;
 }
 
 const promiseGetCount = () => {

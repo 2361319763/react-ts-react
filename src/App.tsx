@@ -1,14 +1,14 @@
 import React from 'react'
-import { RouterProvider } from 'react-router-dom'
-import routes from '@/router'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from '@/router'
 import '@/assets/style/App.css'
 
 const App: React.FC = () => {
   console.log('App 被加载')
   return (
-    <RouterProvider 
-      router={routes} 
-    />
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   )
 }
 export default App;
