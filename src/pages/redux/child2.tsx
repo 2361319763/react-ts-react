@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { store } from '@/redux/store';
 
 const reduxChild2: React.FC = () => {
-  const [name, setName] = useState<string>(store.getState().nameReducer.name);
+  const [name, setName] = useState<string>(store.getState().userReducer.name);
   const [count, setCount] = useState<number>(store.getState().countReducer.count);
   useEffect(()=> {
     const unsubscribe = store.subscribe(()=>{
       const state = {...store.getState()}
-      setName(state.nameReducer.name);
+      setName(state.userReducer.name);
       setCount(state.countReducer.count);
       console.log('redux - 兄弟组件中订阅', store.getState());
     });

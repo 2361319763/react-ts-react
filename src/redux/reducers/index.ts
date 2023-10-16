@@ -1,14 +1,14 @@
 import { combineReducers } from "redux";
-import nameReducer, { NameReducerState } from "./nameReducer";
+import userReducer, { UserReducerState } from "./userReducer";
 import countReducer, { CountReducerState } from "./countReducer";
 
 export interface ReducerInterface {
-  nameReducer: NameReducerState;
+  userReducer: UserReducerState;
   countReducer: CountReducerState;
 };
 
 const reducer = combineReducers({
-  nameReducer,
+  userReducer,
   countReducer
 });
 

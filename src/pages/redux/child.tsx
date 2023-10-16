@@ -46,7 +46,7 @@ const reduxChild: React.FC = () => {
 
   return (
     <div>
-      <h2>reduxChild</h2>
+      <h2>redux-thunk & redux-promise</h2>
       <Button onClick={()=>{dispatchSetNmae()}}>发布 SET_NAME</Button>
       <Button onClick={()=>{dispatchSetCount()}}>发布 SET_COUNT</Button>
       <Button onClick={()=>{reduxThunkDispatchSetCount()}}>异步发布 redux-thunk SET_COUNT</Button>

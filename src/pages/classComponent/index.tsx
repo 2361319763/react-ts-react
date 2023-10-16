@@ -2,30 +2,31 @@ import React, { Component } from 'react';
 import { Button } from 'antd';
 import ClassComponentChild from './child';
 
-interface InState {
+interface StateInterface {
   myShow: boolean;
   index: number;
 }
-export type userProps = {
+export interface PropsInterface {
   name: string;
   age: number;
 }
 
-export default class classComponent extends Component<userProps>{
+// Component<约定属性,约定状态>
+export default class classComponent extends Component<PropsInterface,StateInterface>{
   
-  static defaultProps: userProps = {
+  static defaultProps = {
     name: 'default',
     age: 18
   }
 
-  public state: InState = {
+  public state = {
     myShow: true,
     index: 0
   }
   myRef = React.createRef<HTMLDivElement>();
   childRef = React.createRef<ClassComponentChild>();
 
-  constructor(props: userProps){
+  constructor(props: PropsInterface){
     super(props);
   }
 

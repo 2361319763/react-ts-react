@@ -47,7 +47,7 @@ const reactReduxIndex: React.FC<PropsInterface> = (props) => {
 const mapStateToProps = (store:ReducerInterface)=>{
   console.log('reactRedux - store:',store);
   return {
-    name: store.nameReducer.name,
+    name: store.userReducer.name,
     // count: store.countReducer.count
   }
 }
