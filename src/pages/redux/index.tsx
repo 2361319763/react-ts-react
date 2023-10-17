@@ -18,7 +18,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'antd';
-import { store } from '@/redux/store';
+import { store } from '@/store';
 import ReduxChild from "./child";
 import ReduxChild2 from "./child2";
 import ReactReduxIndex from "./reactRedux";

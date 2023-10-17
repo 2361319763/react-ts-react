@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { store } from '@/redux/store';
+import { store } from '@/store';
 
 const reduxChild2: React.FC = () => {
   const [name, setName] = useState<string>(store.getState().userReducer.name);

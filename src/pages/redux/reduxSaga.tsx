@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from "antd";
-import { ReducerInterface } from '@/redux/reducers';
+import { ReducerInterface } from '@/store/reducers';
 // import "./es6-生成器/生成器"
 // import "./es6-生成器/可执行生成器"
 

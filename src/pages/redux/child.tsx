@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import { Dispatch } from 'redux';
-import { store } from '@/redux/store';
+import { store } from '@/store';
 
 const dispatchSetNmae = (payload:string = 'reduxChild') => {
   store.dispatch({

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 import { Button } from 'antd';
-import { ReducerInterface } from '@/redux/reducers'
+import { ReducerInterface } from '@/store/reducers'
 
 interface PropsInterface {
   name: string;
