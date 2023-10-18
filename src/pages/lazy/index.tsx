@@ -1,7 +1,6 @@
 import React, { useState, Suspense } from "react";
 import { Button } from "antd";
-// import Comingsoon from "./comingsoon"
-// import Nowplaying from "./nowplaying"
+
 const Nowplaying = React.lazy(() => import("./nowplaying"))
 const Comingsoon = React.lazy(() => import("./comingsoon"))
 const LazyIndex: React.FC = () => {
