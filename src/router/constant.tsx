@@ -1,6 +1,6 @@
 import { RouteInterface } from './basic'
-import NotFound from '@/pages/404';
-import Redirect from '@/pages/redirect';
+import NotFound from '@/view/404';
+import Redirect from '@/view/redirect';
 
 const constantRoutes: RouteInterface[] = [
   {

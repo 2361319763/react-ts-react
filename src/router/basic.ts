@@ -19,16 +19,16 @@ const setPath = (path:string)=>{
   }
 }
 
-const modules = import.meta.glob("@/pages/**/*.tsx",{
+const modules = import.meta.glob("@/view/**/*.tsx",{
   eager: true,
   import: 'default'
 });
 
 const basicRoutes = Object.entries(modules).map(([pagePath,config])=>{
-  const path = pagePath.replace('/src/pages', '').replace('.tsx', '');
-  const id = pagePath.split('/').filter(Boolean).join('-') || 'index';
+  const path = pagePath.replace('/src/view', '').replace('.tsx', '').replace(/\/index$/, '');
+  const id = pagePath.split('/').filter(Boolean).join('-').replace('.tsx', '') || 'index';
   return {
-    path: setPath(path),
+    path: setPath(path) || '/',
     id,
     Component: modules[pagePath]
   }

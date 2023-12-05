@@ -2,7 +2,6 @@ import path from 'path'
 import { defineConfig, loadEnv, ConfigEnv  } from 'vite'
 import { wrapperEnv } from './build/utils';
 import { createVitePlugins } from './build/vite/plugin';
-import { createProxy } from './build/vite/proxy';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }: ConfigEnv )=>{
@@ -14,8 +13,6 @@ export default defineConfig(({ mode, command }: ConfigEnv )=>{
   const viteEnv = wrapperEnv(env);
 
   const { VITE_PORT, VITE_APP_ENV, VITE_APP_BASE_API, VITE_APP_BASE_URL } = viteEnv;
-
-  const VITE_PROXY = [ VITE_APP_BASE_API, VITE_APP_BASE_URL ]
 
   const isBuild = command === 'build';
 
@@ -55,7 +52,13 @@ export default defineConfig(({ mode, command }: ConfigEnv )=>{
       open: true,
       https: true,
       port: VITE_PORT,
-      // proxy: createProxy(VITE_PROXY),
+      proxy: {
+        [VITE_APP_BASE_API]: { 
+          target: VITE_APP_BASE_URL,
+          changeOrigin: true,
+          // rewrite: (p) => p.replace(/^\/dev-api/, '')
+        }
+    },
       hmr:{
         overlay:false
       }

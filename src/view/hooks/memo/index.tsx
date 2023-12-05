@@ -5,7 +5,7 @@
  * 新老 props 相等时子组件不更新
  */
 
-import React, { Component, ReactNode } from "react";
+import React, { Component, ReactNode, useState, useEffect } from "react";
 import { Card, Input, Button } from "antd";
 import Child from "./child";
 
