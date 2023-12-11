@@ -4,6 +4,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import react from '@vitejs/plugin-react';
 import createCompression from './compression';
 import createSvgIcon from './svg-icon';
+import createViteMockServe from './mock-serve';
 
 interface ViteEnv {
   VITE_PORT: number;
@@ -32,7 +33,8 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean = false) {
     }),
   ];
   vitePlugins.push(createSvgIcon(isBuild))
-  isBuild && vitePlugins.push(...createCompression(viteEnv))
+  vitePlugins.push(createViteMockServe());
+  isBuild && vitePlugins.push(...createCompression(viteEnv));
   
   return vitePlugins;
 }

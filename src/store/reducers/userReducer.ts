@@ -28,7 +28,7 @@ const userReducer: Reducer<UserReducerState,UserReducerAction> = (prevState = st
   switch(action.type){
     case 'SET_NAME':
       return setName(prevState, action);
-      case 'SET_USER':
+    case 'SET_USER':
       return setUser(prevState, action);
     default:
   }

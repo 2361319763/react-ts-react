@@ -1,4 +1,5 @@
 import request from '@/utils/request';
+import { GetRequestType } from './types'
 
 export function requestApi(data:any) {
   return request({
@@ -9,5 +10,12 @@ export function requestApi(data:any) {
       headers: {
         ['Authorization']: 'Bearer ' + data.token
       }
+  });
+}
+
+export function getUserApi() {
+  return request<GetRequestType>({
+    url: '/userInfo',
+    method: 'get'
   });
 }
