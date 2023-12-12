@@ -7,10 +7,12 @@ const constantRoutes: RouteInterface[] = [
     path: '*',
     id: 'NoFound',
     element: <NotFound />,
+    auth: false
   },{
     path: '/redirect',
     id:'redirect',
     element: <Redirect />,
+    auth: false
   }
 ];
 

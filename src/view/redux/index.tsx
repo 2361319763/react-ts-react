@@ -14,6 +14,8 @@
  * 
  * redux-persist redux持久化
  * 可以选择 storage,cookie,session 等
+ * 
+ * 查看需解注 main.ts 中的代码
  */
 
 import React, { useEffect, useState } from 'react';

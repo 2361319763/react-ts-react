@@ -1,4 +1,4 @@
-import hljs from 'highlight.js/lib/core';
+import hljs from 'highlight.js';
 // 导入需要的语言高亮
 import java from 'highlight.js/lib/languages/java';
 import csharp from 'highlight.js/lib/languages/csharp';
@@ -7,6 +7,7 @@ import python from 'highlight.js/lib/languages/python';
 import objectivec from 'highlight.js/lib/languages/objectivec';
 import bash from 'highlight.js/lib/languages/bash';
 import json from 'highlight.js/lib/languages/json';
+import javascript from 'highlight.js/lib/languages/javascript';
 
 hljs.registerLanguage('java', java);
 hljs.registerLanguage('csharp', csharp);
@@ -15,5 +16,6 @@ hljs.registerLanguage('python', python);
 hljs.registerLanguage('objectivec', objectivec);
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('json', json);
+hljs.registerLanguage('javascript', javascript);
 
 export default hljs;

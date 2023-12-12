@@ -5,6 +5,7 @@ export interface RouteInterface {
   id: string,
   Component?: React.ComponentType | null,
   element?: React.ReactNode | null;
+  auth?: boolean;
 }
 const paramsList = ['/hooks/useNavigate/params'];
 
@@ -27,10 +28,12 @@ const modules = import.meta.glob("@/view/**/*.tsx",{
 const basicRoutes = Object.entries(modules).map(([pagePath,config])=>{
   const path = pagePath.replace('/src/view', '').replace('.tsx', '').replace(/\/index$/, '');
   const id = pagePath.split('/').filter(Boolean).join('-').replace('.tsx', '') || 'index';
+  
   return {
     path: setPath(path) || '/',
     id,
-    Component: modules[pagePath]
+    Component: modules[pagePath],
+    auth: false
   }
 }) as RouteInterface[];
 
