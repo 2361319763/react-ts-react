@@ -1,7 +1,7 @@
 /**
  * flushSync 
  * 允许你强制 React 在提供的回调函数内同步刷新任何更新，这将确保 DOM 立即更新
- * 在 flushSyn c中修改 state 页面会立即更新
+ * 在 flushSync 中修改 state 页面会立即更新
  */
 
 import React, { useState, useRef } from 'react';
