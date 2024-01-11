@@ -4,7 +4,7 @@ import { resolve } from 'path';
 export default function createViteMockServe() {
   return viteMockServe({
     ignore: /^\_/, // 以 _ 开头的是工具文件，忽略
-    mockPath: './src/mock/source', // 解析，路径可根据实际变动
+    mockPath: './mock', // 解析，路径可根据实际变动
     localEnabled: true, // 开发环境
     prodEnabled: true, // 生产环境设为true，也可以根据官方文档格式
     injectCode: ` import { setupProdMockServer } from './src/mock/index.ts';

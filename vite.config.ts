@@ -62,6 +62,6 @@ export default defineConfig(({ mode, command }: ConfigEnv )=>{
       hmr:{
         overlay:false
       }
-    }
+    },
   }
 })

@@ -1,0 +1,33 @@
+.stage {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+}
+
+.actor {
+  animation: kenburns 30s linear infinite;
+  background-size: cover;
+  background-position: 50%;
+  height: 100vh;
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+  scale: 1.2;
+  width: 100vw;
+}
+
+@keyframes kenburns {
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .8;
+    scale: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+}
