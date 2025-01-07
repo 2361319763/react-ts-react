@@ -11,10 +11,10 @@ const reduxSagaIndex: React.FC = () => {
   return (
     <div>
       <h2>reduxSaga</h2>
-      <p>姓名 — { user.name }</p>
-      <p>年龄 — { user.age }</p>
-      <p>性别 — { user.sex }</p>
-      <p>电话 — { user.phone }</p>
+      <p>姓名 — { user?.name }</p>
+      <p>年龄 — { user?.age }</p>
+      <p>性别 — { user?.sex }</p>
+      <p>电话 — { user?.phone }</p>
       <Button onClick={()=>dispatch({type:"GET_INFO"})}>获取用户信息</Button>
     </div>
   )

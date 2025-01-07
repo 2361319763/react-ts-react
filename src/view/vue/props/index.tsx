@@ -11,7 +11,7 @@ export default function Tab() {
   return(
     <div className='tab'>
         <div className='box'>
-            <TabName msg={serverUrl} changeMsg={changeMsg} />
+          <TabName msg={serverUrl} changeMsg={changeMsg} />
         </div>
     </div>
   );

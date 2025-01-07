@@ -23,7 +23,7 @@ const promiseGetCount = () => {
 const reactReduxIndex: React.FC<PropsInterface> = (props) => {
   const dispatch = useDispatch();
   const { dispatchSetNmae } = props;
-  const count = useSelector((state:ReducerInterface) => state.countReducer.count);
+  const count = useSelector((state:ReducerInterface) => state.countReducer?.count);
 
   useEffect(()=>{
     console.log('reactRedux - props:',props);
@@ -47,8 +47,8 @@ const reactReduxIndex: React.FC<PropsInterface> = (props) => {
 const mapStateToProps = (store:ReducerInterface)=>{
   console.log('reactRedux - store:',store);
   return {
-    name: store.userReducer.name,
-    // count: store.countReducer.count
+    name: store.userReducer?.name,
+    count: store.countReducer?.count
   }
 }
 const mapDispatchToProps = (dispatch:Dispatch) => ({
@@ -58,8 +58,8 @@ const mapDispatchToProps = (dispatch:Dispatch) => ({
       payload
     })
   },
-  // dispatchSetCount: () => {
-  //   dispatch(promiseGetCount())
-  // }
+  dispatchSetCount: () => {
+    dispatch(promiseGetCount())
+  }
 })
 export default connect(mapStateToProps,mapDispatchToProps)(reactReduxIndex);
